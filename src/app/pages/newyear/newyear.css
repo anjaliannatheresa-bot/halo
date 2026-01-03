@@ -1,0 +1,160 @@
+:host {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at bottom, #020617, #000);
+  color: white;
+}
+
+/* Scene */
+.scene {
+  position: relative;
+  height: 100%;
+}
+
+/* Center text */
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.year {
+  font-size: clamp(4rem, 15vw, 6.5rem);
+  font-weight: bold;
+  background: linear-gradient(45deg, gold, orange, red);
+
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 25px #ffd700, 0 0 50px #ff8800, 0 0 75px #ff0044;
+  animation: float 4s ease-in-out infinite;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 3.8rem);
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 0 20px #ffdd55, 0 0 40px #ff5500, 0 0 60px #ff0044;
+  animation: glow 2s infinite alternate;
+}
+
+h2 {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  margin-top: 10px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffcc88;
+  opacity: 0.9;
+}
+
+/* Stars */
+.stars {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    200px 100px white, 400px 300px white, 600px 150px white,
+    800px 400px white, 1000px 200px white, 1200px 500px white;
+  animation: twinkle 8s infinite alternate;
+}
+
+.layer2 { opacity: 0.6; animation-duration: 12s; }
+.layer3 { opacity: 0.3; animation-duration: 16s; }
+
+/* Snow */
+.snow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 100px 80px, white, transparent),
+    radial-gradient(2px 2px at 200px 150px, white, transparent),
+    radial-gradient(2px 2px at 300px 200px, white, transparent),
+    radial-gradient(2px 2px at 400px 100px, white, transparent);
+  animation: snow 20s linear infinite;
+  opacity: 0.6;
+}
+
+/* Fireworks */
+.firework {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow:
+    0 -70px gold,
+    50px -50px cyan,
+    70px 0 red,
+    50px 50px lime,
+    0 70px gold,
+    -50px 50px cyan,
+    -70px 0 red,
+    -50px -50px lime;
+  animation: explode 3s infinite ease-out;
+}
+
+.f1 { top: 25%; left: 20%; animation-delay: 0s; }
+.f2 { top: 20%; left: 70%; animation-delay: 1s; }
+.f3 { top: 55%; left: 60%; animation-delay: 2s; }
+.f4 { top: 40%; left: 45%; animation-delay: 1.5s; }
+.f5 { top: 30%; left: 85%; animation-delay: 2.5s; }
+
+/* Santa */
+.santa {
+  position: absolute;
+  top: 12%;
+  left: -15%;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  filter: drop-shadow(0 0 10px gold);
+  animation: santaFly 18s linear infinite;
+  z-index: 5;
+}
+
+/* Animations */
+@keyframes explode {
+  0% { transform: scale(0.2); opacity: 0; }
+  30% { opacity: 1; }
+  60% { transform: scale(1.6); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes santaFly {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(130vw) translateY(20px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 15px gold; }
+  to { text-shadow: 0 0 35px orange; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+@keyframes snow {
+  from { transform: translateY(-100px); }
+  to { transform: translateY(100vh); }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .stars { opacity: 0.5; }
+  .snow { opacity: 0.4; }
+  .santa { font-size: 3rem; }
+}

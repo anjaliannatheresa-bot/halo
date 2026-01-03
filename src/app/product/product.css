@@ -1,0 +1,228 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.center-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #fef9ff;
+  background-image: 
+    radial-gradient(#ff9ff3 2px, transparent 2px),
+    radial-gradient(#74b9ff 2px, transparent 2px),
+    radial-gradient(#fdcb6e 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px, 10px 10px;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.5);
+  z-index: 10;
+  opacity: 0;
+  display: inline-block;
+  animation: rotateIn 1.5s forwards, continuousBounce 2s ease-in-out infinite 1.5s;
+}
+
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: floatUp linear infinite;
+}
+.balloon1 { width:60px; height:80px; background:#ff9ff3; left:10%; animation-duration:4s; animation-delay:0s;}
+.balloon2 { width:50px; height:70px; background:#74b9ff; left:30%; animation-duration:5s; animation-delay:2s;}
+.balloon3 { width:70px; height:90px; background:#dcb9ff; left:50%; animation-duration:6s; animation-delay:1s;}
+.balloon4 { width:55px; height:75px; background:#ffcccc; left:70%; animation-duration:4.5s; animation-delay:3s;}
+.balloon5 { width:65px; height:85px; background:#a0e7e5; left:85%; animation-duration:5.5s; animation-delay:4s;}
+
+/* Stars / sparkles */
+.star {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite alternate;
+}
+
+.star1 { top: 10%; left: 20%; animation-delay: 0s; }
+.star2 { top: 15%; left: 70%; animation-delay: 0.5s; }
+.star3 { top: 5%; left: 50%; animation-delay: 1s; }
+.star4 { top: 25%; left: 30%; animation-delay: 1.5s; }
+.star5 { top: 20%; left: 80%; animation-delay: 2s; }
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.3; transform: scale(0.8); }
+}
+
+/* Confetti pieces */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ff6b6b;
+  border-radius: 2px;
+  opacity: 0.9;
+  animation: confettiFall linear infinite;
+}
+
+.conf1 { left: 10%; animation-duration: 4s; animation-delay: 0s; }
+.conf2 { left: 30%; animation-duration: 5s; animation-delay: 1s; background: #ffb6b9; }
+.conf3 { left: 50%; animation-duration: 4.5s; animation-delay: 0.5s; background: #fcd5ce; }
+.conf4 { left: 70%; animation-duration: 5.2s; animation-delay: 0.2s; background: #caffbf; }
+.conf5 { left: 85%; animation-duration: 4.8s; animation-delay: 1s; background: #9bf6ff; }
+
+@keyframes confettiFall {
+  0% { top: -10px; transform: rotate(0deg); opacity: 1; }
+  100% { top: 100vh; transform: rotate(360deg); opacity: 0; }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  50% { transform: translateY(-150px) rotate(10deg); }
+  100% { transform: translateY(-1200px) rotate(-10deg); opacity:0; }
+}
+
+
+
+
+/* Combined: rotate-in + fade, then continuous bounce */
+.rotate-in-bounce {
+  animation: rotateIn 1.5s forwards, continuousBounce 2s ease-in-out infinite 1.5s;
+}
+
+@keyframes rotateIn {
+  0% { transform: rotate(-360deg) scale(0); opacity: 0; }
+  50% { transform: rotate(-180deg) scale(1.2); opacity: 1; }
+  70% { transform: rotate(-45deg) scale(0.9); }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+
+@keyframes continuousBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+
+
+
+.orbit1 { animation-duration: 12s; }
+.orbit2 { animation-duration: 15s; animation-delay: 0s; }
+.orbit3 { animation-duration: 20s; animation-delay: 0s; }
+
+
+
+.orbit1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform-origin: center;
+  animation: rotateOrbit 10s linear infinite;
+  animation-delay: 1s; /* start after 1 second */
+}
+
+.orbit2 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 700px;
+  height: 700px;
+  transform-origin: center;
+  animation: rotateOrbit 10s linear infinite;
+  animation-delay: 2s; /* start after 1 second */
+}
+.orbit3 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 700px;
+  height: 700px;
+  transform-origin: center;
+  animation: rotateOrbit 10s linear infinite;
+  animation-delay: 3s; /* start after 1 second */
+}
+.orbit .floating {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  
+  width: 150px;
+  
+  transform: translateX(350px) translateY(-50%) rotate(-400deg);
+  opacity: 0; /* hidden initially */
+  animation: counterRotate 10s linear infinite;
+  animation-delay: 3s; /* match orbit delay */
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotateOrbit {
+  0%   { transform: rotate(-90deg); }
+  100% { transform: rotate(300deg); }
+}
+
+@keyframes counterRotate {
+  0%   { transform: translateX(500px) translateY(-50%) rotate(90deg); opacity: 1; }
+  100% { transform: translateX(500px) translateY(-50%) rotate(-400deg); opacity: 1; }
+}
+
+.love-btn {
+  margin-top: 30px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff9ff3, #feca57);
+  color:black;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+
+  /* Hidden initially */
+  opacity: 0;
+  transform: translateY(20px);
+
+  /* Appear after delay */
+  animation: buttonFadeIn 0.8s ease forwards;
+  animation-delay: 8s; /* 👈 change time here */
+}
+
+/* Hover effect */
+.love-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 30px rgba(255, 105, 180, 0.6);
+}
+
+/* Fade-in animation */
+@keyframes buttonFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
